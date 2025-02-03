@@ -1,0 +1,12 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'yamisskey is down!',
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
+  },
+
+  modules: ['@nuxt/image'],
+  compatibilityDate: '2025-02-03',
+});

@@ -1,0 +1,23 @@
+{
+  "name": "maintenance-page",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "^3.8.2",
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.9.0",
+    "@types/node": "^20.9.1",
+    "typescript": "^5.3.2"
+  }
+}
