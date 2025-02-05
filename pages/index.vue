@@ -6,13 +6,22 @@ interface MaintenanceState {
   message: string;
   endTime: Date;
   startTime: Date;
+  links: Array<{
+    text: string;
+    url: string;
+  }>;
 }
 
 const state = ref<MaintenanceState>({
   title: 'メンテナンス中',
-  message: '現在システムメンテナンスを実施しています。\nご不便をおかけして申し訳ございません。',
+  message: 'ご不便をおかけして申し訳ございません。',
   startTime: new Date(), // 現在時刻
-  endTime: new Date(new Date().getTime() + 2 * 60 * 60 * 1000), // 2時間後
+  endTime: new Date(new Date().getTime() + 1 * 60 * 60 * 1000), // 1時間後
+  links: [
+    { text: 'ステータス', url: 'https://status.yami.ski/' },
+    { text: 'お問い合わせフォーム', url: 'https://pad.yami.ski/form/#/2/form/view/jtE97t4MO49M3LGf8Vs5uEkxkljD0X097UIoyqbmx3s/' },
+    { text: 'やみはぶ', url: 'https://hub.yami.ski/' }
+  ]
 });
 
 const progress = ref(0);
@@ -49,7 +58,7 @@ const formatDateTime = (date: Date): string => {
 </script>
 
 <template>
-  <div class="maintenance-container" style="background-image: url('/wallpaper.jpg')">}">
+  <div class="maintenance-container" style="background-image: url('/wallpaper.jpg')">
     <div class="background-overlay" />
 
     <div class="maintenance-card">
@@ -73,7 +82,7 @@ const formatDateTime = (date: Date): string => {
 
       <div class="status-badge">
         <div class="pulse" />
-        <span>システムアップデート中</span>
+        <span>サーバーがダウンしています</span>
       </div>
 
       <div class="message">
@@ -91,6 +100,23 @@ const formatDateTime = (date: Date): string => {
           <p>復旧予定時刻: {{ formatDateTime(state.endTime) }}</p>
           <p class="remaining-time">残り時間: {{ timeRemaining }}</p>
         </div>
+      </div>
+
+      <div class="auto-notice">
+        <p>このページは自動的に表示されています。</p>
+      </div>
+
+      <div class="links-container">
+        <a 
+          v-for="(link, index) in state.links" 
+          :key="index"
+          :href="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-button"
+        >
+          {{ link.text }}
+        </a>
       </div>
     </div>
   </div>
@@ -281,39 +307,31 @@ h1 {
   font-weight: 500;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.auto-notice {
+  color: rgba(168, 177, 194, 0.85);
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
 }
 
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-    border-width: 3px;
-  }
-  50% {
-    border-width: 1px;
-  }
-  100% {
-    transform: rotate(360deg);
-    border-width: 3px;
-  }
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
 }
 
-@keyframes pulse-dot {
-  0% { 
-    transform: scale(0.8); 
-  }
-  50% { 
-    transform: scale(1); 
-  }
-  100% { 
-    transform: scale(0.8); 
-  }
+.link-button {
+  background: rgba(82, 61, 216, 0.08);
+  color: #705DD8;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.link-button:hover {
+  background: rgba(82, 61, 216, 0.15);
 }
 
 @media (max-width: 640px) {
@@ -335,5 +353,53 @@ h1 {
     width: 48px;
     height: 48px;
   }
+
+  .links-container {
+    gap: 0.5rem;
+  }
+  
+  .link-button {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.maintenance-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(82, 61, 216, 0.08);
+}
+
+.maintenance-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #705DD8;
+  border-right-color: #705DD8;
+  animation: spinner 2s linear infinite;
+}
+
+.favicon-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  animation: spinner 6s linear infinite;
 }
 </style>
