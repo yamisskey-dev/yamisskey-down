@@ -26,17 +26,6 @@
         </p>
       </div>
 
-      <div class="progress-bar">
-        <div class="progress" :style="{ width: `${progress}%` }" />
-      </div>
-
-      <div class="estimated-time">
-        <div class="time-details">
-          <p>復旧予定時刻: {{ formatDateTime(state.endTime) }}</p>
-          <p class="remaining-time">残り時間: {{ timeRemaining }}</p>
-        </div>
-      </div>
-
       <div class="auto-notice">
         <p>このページは自動的に表示されています。</p>
       </div>
@@ -51,13 +40,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 interface MaintenanceState {
   title: string;
   message: string;
-  endTime: Date;
-  startTime: Date;
   links: Array<{
     text: string;
     url: string;
@@ -67,44 +54,12 @@ interface MaintenanceState {
 const state = ref<MaintenanceState>({
   title: 'メンテナンス中',
   message: 'ご不便をおかけして申し訳ございません。',
-  startTime: new Date(), // 現在時刻
-  endTime: new Date(new Date().getTime() + 1 * 60 * 60 * 1000), // 1時間後
   links: [
     { text: 'ステータス', url: 'https://status.yami.ski/' },
     { text: 'お問い合わせフォーム', url: 'https://pad.yami.ski/form/#/2/form/view/jtE97t4MO49M3LGf8Vs5uEkxkljD0X097UIoyqbmx3s/' },
     { text: 'やみはぶ', url: 'https://hub.yami.ski/' },
   ],
 });
-
-const progress = ref(0);
-const timeRemaining = ref('');
-
-const updateProgress = () => {
-  const now = new Date();
-  const total = state.value.endTime.getTime() - state.value.startTime.getTime();
-  const elapsed = now.getTime() - state.value.startTime.getTime();
-  progress.value = Math.min(100, (elapsed / total) * 100);
-
-  const remaining = state.value.endTime.getTime() - now.getTime();
-  if (remaining > 0) {
-    const hours = Math.floor(remaining / (60 * 60 * 1000));
-    const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
-    timeRemaining.value = `${hours}時間${minutes}分`;
-  } else {
-    timeRemaining.value = '間もなく復旧予定';
-  }
-};
-
-onMounted(() => {
-  updateProgress();
-  setInterval(updateProgress, 1000);
-});
-
-const formatDateTime = (date: Date): string => {
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  return `${hours}:${minutes}`;
-};
 </script>
 
 <style scoped>
@@ -234,50 +189,6 @@ h1 {
   margin: 1.5rem 0;
   line-height: 1.8;
   font-size: 1.1rem;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(82, 61, 216, 0.15);
-  border-radius: 3px;
-  margin: 1.5rem 0;
-  overflow: hidden;
-}
-
-.progress {
-  height: 100%;
-  background: linear-gradient(135deg, #9c48a3, #705dd8, #483d8b);
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.time-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.time-details p {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-}
-
-.remaining-time {
-  color: #705dd8;
-  font-weight: 500;
-}
-
-.estimated-time {
-  background: rgba(82, 61, 216, 0.08);
-  border-radius: 12px;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(168, 177, 194, 0.85);
 }
 
 .auto-notice {
