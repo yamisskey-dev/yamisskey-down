@@ -166,6 +166,7 @@ const state = ref<MaintenanceState>({
   align-items: center;
   gap: 0.5rem;
   margin: 1rem 0;
+  color: rgba(168, 177, 194, 0.85);
 }
 
 .pulse {
