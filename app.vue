@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  title: 'yamisskey is down!',
+  title: '✝闇落ちだ！✝',
   link: [
     {
       rel: 'icon',

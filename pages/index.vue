@@ -52,7 +52,7 @@ interface MaintenanceState {
 }
 
 const state = ref<MaintenanceState>({
-  title: 'メンテナンス中',
+  title: '✝闇落ちだ！✝',
   message: 'ご不便をおかけして申し訳ございません。',
   links: [
     { text: 'ステータス', url: 'https://status.yami.ski/' },
