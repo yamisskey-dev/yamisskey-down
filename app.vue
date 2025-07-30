@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-  title: '✝闇落ちだ！✝',
+  title: '✝闇落ち✝',
   link: [
     {
       rel: 'icon',
