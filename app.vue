@@ -4,8 +4,8 @@ useHead({
   link: [
     {
       rel: 'icon',
-      type: 'image/x-icon',
-      href: '/images/favicon.ico'
+      type: 'image/png',
+      href: 'https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yami.ski/yami-logo-85x85.png'
     }
   ]
 })

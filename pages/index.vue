@@ -1,5 +1,5 @@
 <template>
-  <div class="maintenance-container" style="background-image: url('/wallpaper.jpg')">
+  <div class="maintenance-container" style="background-image: url('https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yami.ski/yami-wallpaper.jpg')">
     <div class="background-overlay" />
 
     <div class="maintenance-card">
@@ -8,7 +8,7 @@
       <div class="icon-container">
         <div class="icon-wrapper">
           <div class="maintenance-icon">
-            <NuxtImg src="/favicon.ico" alt="Maintenance Icon" class="favicon-icon" width="64" height="64" format="webp" quality="80" />
+            <NuxtImg src="https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yami.ski/yami-logo-85x85.png" alt="Maintenance Icon" class="favicon-icon" width="64" height="64" format="webp" quality="80" />
           </div>
         </div>
       </div>
