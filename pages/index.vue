@@ -15,6 +15,10 @@
 
       <h1>{{ state.title }}</h1>
 
+      <div class="mascot-container">
+        <NuxtImg src="https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yui/yui-128x128.png" alt="yui" class="mascot-image" width="128" height="128" />
+      </div>
+
       <div class="status-badge">
         <div class="pulse" />
         <span>サーバーがダウンしています</span>
@@ -158,6 +162,16 @@ const state = ref<MaintenanceState>({
   animation: slow-spin 6s linear infinite;
 }
 
+.mascot-container {
+  margin: 1rem 0;
+}
+
+.mascot-image {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
 .status-badge {
   background: rgba(82, 61, 216, 0.08);
   border-radius: 20px;
@@ -282,6 +296,11 @@ h1 {
   .favicon-icon {
     width: 48px;
     height: 48px;
+  }
+
+  .mascot-image {
+    width: 96px;
+    height: 96px;
   }
 
   .links-container {
