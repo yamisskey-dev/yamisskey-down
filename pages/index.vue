@@ -1,5 +1,5 @@
 <template>
-  <div class="maintenance-container" style="background-image: url('https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yami.ski/yami-wallpaper.jpg')">
+  <div class="maintenance-container" style="background-image: url('https://angelkawaii.com/wp-content/uploads/2024/01/33.png')">
     <div class="background-overlay" />
 
     <div class="maintenance-card">
