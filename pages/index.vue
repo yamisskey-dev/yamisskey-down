@@ -15,23 +15,23 @@
 
       <h1>{{ state.title }}</h1>
 
-      <div class="mascot-container">
-        <NuxtImg src="https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yui/yui-128x128.png" alt="yui" class="mascot-image" width="128" height="128" />
-      </div>
-
       <div class="status-badge">
         <div class="pulse" />
         <span>サーバーがダウンしています</span>
+      </div>
+
+      <div class="auto-notice">
+        <p>このページは自動的に表示されています。</p>
+      </div>
+
+      <div class="mascot-container">
+        <NuxtImg src="https://raw.githubusercontent.com/yamisskey-dev/yamisskey-assets/main/yui/yui-128x128.png" alt="yui" class="mascot-image" width="128" height="128" />
       </div>
 
       <div class="message">
         <p v-for="(line, index) in state.message.split('\n')" :key="index">
           {{ line }}
         </p>
-      </div>
-
-      <div class="auto-notice">
-        <p>このページは自動的に表示されています。</p>
       </div>
 
       <div class="links-container">
@@ -56,8 +56,8 @@ interface MaintenanceState {
 }
 
 const state = ref<MaintenanceState>({
-  title: '✝闇落ち✝',
-  message: 'ご不便をおかけして申し訳ございません。\n復旧までしばらくお待ちください。',
+  title: '✝闇堕ち✝',
+  message: '鯖が落ちちゃった...\n復旧まで待っててね...',
   links: [
     { text: 'サービス一覧', url: 'https://hub.yami.ski/' },
     { text: 'ステータス', url: 'https://status.yami.ski/' },
@@ -163,7 +163,7 @@ const state = ref<MaintenanceState>({
 }
 
 .mascot-container {
-  margin: 1rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .mascot-image {
@@ -179,7 +179,7 @@ const state = ref<MaintenanceState>({
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   color: rgba(168, 177, 194, 0.85);
 }
 
@@ -194,21 +194,21 @@ const state = ref<MaintenanceState>({
 h1 {
   color: #a8b1c2;
   font-size: 2rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0.5rem 0;
   font-weight: bold;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .message {
   color: rgba(168, 177, 194, 0.85);
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem 0;
   line-height: 1.8;
   font-size: 1.1rem;
 }
 
 .auto-notice {
   color: rgba(168, 177, 194, 0.85);
-  margin: 1.5rem 0;
+  margin: 0.25rem 0 1.5rem 0;
   font-size: 0.9rem;
 }
 
