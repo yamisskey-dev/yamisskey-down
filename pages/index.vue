@@ -92,7 +92,7 @@ const state = ref<MaintenanceState>({
 
 .maintenance-card {
   background: rgba(15, 10, 34, 0.9);
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -163,7 +163,7 @@ const state = ref<MaintenanceState>({
 }
 
 .mascot-container {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.25rem 0;
 }
 
 .mascot-image {
@@ -173,56 +173,66 @@ const state = ref<MaintenanceState>({
 }
 
 .status-badge {
-  background: rgba(82, 61, 216, 0.08);
+  background: rgba(82, 61, 216, 0.15);
+  border: 1px solid rgba(82, 61, 216, 0.3);
   border-radius: 20px;
   padding: 0.5rem 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 0.5rem 0;
-  color: rgba(168, 177, 194, 0.85);
+  gap: 0.6rem;
+  margin: 0.25rem 0;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pulse {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #705dd8;
   border-radius: 50%;
   animation: pulse-dot 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  box-shadow: 0 0 8px rgba(112, 93, 216, 0.5);
 }
 
 h1 {
-  color: #a8b1c2;
-  font-size: 2rem;
-  margin: 1.5rem 0 0.5rem 0;
+  color: #fff;
+  font-size: 2.2rem;
+  margin: 1.5rem 0 0.25rem 0;
   font-weight: bold;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #fff, #a8b1c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
 }
 
 .message {
   color: rgba(168, 177, 194, 0.85);
-  margin: 0 0 1.5rem 0;
-  line-height: 1.8;
-  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 .auto-notice {
   color: rgba(168, 177, 194, 0.85);
-  margin: 0.25rem 0 1.5rem 0;
-  font-size: 0.9rem;
+  margin: 0.25rem 0 1rem 0;
+  font-size: 0.85rem;
 }
 
 .links-container {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
+  gap: 0.5rem;
+  margin: 0;
 }
 
 .link-button {
   background: rgba(82, 61, 216, 0.08);
   color: #705dd8;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 12px;
   text-decoration: none;
   transition: background-color 0.2s ease;
@@ -274,7 +284,7 @@ h1 {
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .icon-container {
