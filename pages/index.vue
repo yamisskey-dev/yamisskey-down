@@ -57,11 +57,11 @@ interface MaintenanceState {
 
 const state = ref<MaintenanceState>({
   title: '✝闇落ち✝',
-  message: 'ご不便をおかけして申し訳ございません。',
+  message: 'ご不便をおかけして申し訳ございません。\n復旧までしばらくお待ちください。',
   links: [
+    { text: 'サービス一覧', url: 'https://hub.yami.ski/' },
     { text: 'ステータス', url: 'https://status.yami.ski/' },
-    { text: 'お問い合わせフォーム', url: 'https://pad.yami.ski/form/#/2/form/view/jtE97t4MO49M3LGf8Vs5uEkxkljD0X097UIoyqbmx3s/' },
-    { text: 'やみはぶ', url: 'https://hub.yami.ski/' },
+    { text: 'お問い合わせ', url: 'https://pad.yami.ski/form/#/2/form/view/jtE97t4MO49M3LGf8Vs5uEkxkljD0X097UIoyqbmx3s/' },
   ],
 });
 </script>
